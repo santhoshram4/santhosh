@@ -1,4 +1,4 @@
-import { Component, OnInit ,Input  } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ɵangular_packages_platform_browser_platform_browser_d } from '@angular/platform-browser';
 import { Router } from '@angular/router';
@@ -10,24 +10,31 @@ import { ShareDateService } from '../sharedDate/share-date.service';
   styleUrls: ['./first.component.scss']
 })
 export class FirstComponent implements OnInit {
-  @Input() data: any
+
+  dataVar: any;
   form = new FormGroup({
-    username: new FormControl('',Validators.required),
-    password: new FormControl('',Validators.required)
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
   })
 
 
-  constructor(private router: Router, private shareddata:ShareDateService) { }
+  constructor(private router: Router, private shareddata: ShareDateService) { }
+  message = "Wellcome"
 
   ngOnInit(): void {
   }
+
   onlogin() {
     console.log(this.form)
     if (this.form.value.username && this.form.value.password) {
 
-      // this.shareddata= this.form.value.username;
+      this.dataVar = this.form.value.username;
+      this.dataVar = this.shareddata.setMessage(this.dataVar)
+      console.log(this.dataVar)
+
       console.log(this.shareddata)
       this.router.navigate(['images'])
+
     }
     else {
       this.form.reset();

@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { ShareDateService } from './share-date.service';
 
 describe('ShareDateService', () => {

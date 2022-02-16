@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ShareDateService } from '../sharedDate/share-date.service';
 
 
 @Component({
@@ -16,25 +17,17 @@ export class HomeComponent implements OnInit {
     {src: '../assets/images/ser4.jpg' , name:'book' }
   ] 
   
-  
-  //  name = 'Angular';
-  // items = [
-  //   {name:'laptop'},
-  //   {name:'Live'},
-  //   {name:'Meetinghall'},
-  //   {name:'Sample'},
-  //   {name:'Book'},
-  // ]
   search = '';
   
-  
+  message: any
 
-  constructor( private router:Router) { }
+  constructor( private router:Router, private shareddata:ShareDateService) { }
   addClick(){
     alert('check')
   }
 
   ngOnInit(): void {
+   this.message= this.shareddata.getMessage()
   }
 
 }
