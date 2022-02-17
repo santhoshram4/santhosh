@@ -4,26 +4,17 @@
 <form [formGroup]="form">
     <div class="box2">
         <div class="box">
-            <!-- <div class="form-group"> -->
-                <label>username:</label>
-                <input type="text" class="form-control mt-2"  formControlName="username"
-                    placeholder="Enter name">
+            <label>username:</label>
+            <input type="text" class="form-control mt-2" formControlName="username" placeholder="Enter name">
 
-            
-        <!-- </div> -->
-        <div class="form-group mt-3">
-            <label style="margin-bottom:5px;" >Password:</label>
-            <input type="password" class="form-control" formControlName="password"
-                placeholder="Password">
+            <div class="form-group mt-3">
+                <label style="margin-bottom:5px;">Password:</label>
+                <input type="password" class="form-control" formControlName="password" placeholder="Password">
+            </div>
 
-
+            <div class="box1">
+                <button type="submit" class="btn btn-primary" (click)="onlogin()">Submit </button>
+            </div>
         </div>
-
-
-        <div class="box1">
-
-            <button type="submit" class="btn btn-primary" (click)="onlogin()">Submit </button>
-        </div>
-    </div>
     </div>
 </form>

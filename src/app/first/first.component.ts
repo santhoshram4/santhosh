@@ -10,7 +10,6 @@ import { ShareDateService } from '../sharedDate/share-date.service';
   styleUrls: ['./first.component.scss']
 })
 export class FirstComponent implements OnInit {
-
   dataVar: any;
   form = new FormGroup({
     username: new FormControl('', Validators.required),
@@ -19,7 +18,8 @@ export class FirstComponent implements OnInit {
 
 
   constructor(private router: Router, private shareddata: ShareDateService) { }
-  message = "Wellcome"
+
+
 
   ngOnInit(): void {
   }
@@ -27,14 +27,12 @@ export class FirstComponent implements OnInit {
   onlogin() {
     console.log(this.form)
     if (this.form.value.username && this.form.value.password) {
-
-      this.dataVar = this.form.value.username;
-      this.dataVar = this.shareddata.setMessage(this.dataVar)
-      console.log(this.dataVar)
-
-      console.log(this.shareddata)
       this.router.navigate(['images'])
+      this.dataVar = this.form.value.username;
 
+      this.dataVar = sessionStorage.setItem('username', this.dataVar);
+      console.log(this.dataVar)
+      this.dataVar = this.shareddata.setMessage(this.dataVar)
     }
     else {
       this.form.reset();
